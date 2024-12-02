@@ -1,0 +1,406 @@
+
+/* Color Variables */
+:root {
+    --primary: #00bfa5;
+    --light: #f5f5f5;
+    --dark: #333;
+    --featured: #f39c12;
+    --sale: #e74c3c;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--light);
+    color: var(--dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 80%;
+}
+
+/* Title Section */
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title h1 {
+    font-size: 2.5rem;
+    color: var(--dark);
+}
+
+.tags {
+    margin-top: 10px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #fff;
+    margin-right: 5px;
+}
+
+.featured {
+    background: var(--featured);
+}
+
+.for-sale {
+    background: var(--sale);
+}
+
+.price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Content Section */
+.content {
+    margin-bottom: 20px;
+}
+
+.content h2 {
+    font-size: 1.5rem;
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--dark);
+}
+
+.address table {
+    width: 80%;
+    border-collapse: collapse;
+}
+
+.address th,
+.address td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Contact Form */
+.contact-form {
+    background: var(--light);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    font-size: 1.5rem;
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+.contact-form p {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: var(--dark);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input,
+form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+form textarea {
+    resize: none;
+    height: 100px;
+}
+
+form button {
+    padding: 12px;
+    border: none;
+    background: var(--primary);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #009f7f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .title h1 {
+        font-size: 2rem;
+    }
+
+    form input,
+    form textarea {
+        font-size: 0.9rem;
+    }
+}
+/* Featured Image */
+.featured-image {
+    width: 100%;
+    overflow:hidden;
+    text-align: center; 
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.featured-image img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    display: inline-block;
+    align-self: center;
+    border-radius: 8px;
+}
+
+/* Gallery */
+.gallery {
+    margin-top: 20px;
+}
+
+.gallery h2 {
+    font-size: 1.5rem;
+    color: var(--dark);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.gallery-container img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gallery-container img {
+        height: 120px;
+    }
+}
+
+/* Profile Photo Style */
+.profile-photo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}.profile-photo {
+    width: 25%; /* Takes up a quarter of the width */
+    height: 25%; /* Maintain the aspect ratio */
+    border-radius: 50%; /* Round shape */
+    object-fit: cover; /* Ensure the image fits inside the circle */
+    border: 2px solid #ddd; /* Optional border for better visibility */
+    margin-bottom: 10px;
+}
+
+.styled-button {
+    display: inline-block;
+    background-color: var(--primary); /* Button color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding for button shape */
+    font-size: 16px; /* Font size */
+    text-align: center;
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+    
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.styled-button:hover {
+    background-color: #009f7f; /* Darker color on hover */
+    color: white;
+}
+
+
+
+/* Heading Style */
+.heading {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Property Listing Styles */
+.property-listing {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Property Card Styles */
+.property-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s;
+}
+
+.property-card:hover {
+    transform: scale(1.05);
+}
+
+/* Image Styles */
+.property-image {
+    position: relative;
+}
+
+.property-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* For Rent Badge */
+.for-rent {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--primary);
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+/* Property Title */
+.property-title {
+    padding: 15px;
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+}
+
+.no-property-image {
+    width: 100%; /* Makes the image responsive */
+    max-width: 300px; /* Sets a maximum width */
+    height: auto; /* Maintains the aspect ratio */
+    border-radius: 8px; /* Optional: adds rounded corners */
+    display: block; /* Ensures proper centering */
+    margin: 0 auto; /* Centers the image horizontally */
+}
+
+.messages-container {
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.messages-container h2 {
+    text-align: center;
+    color: #333;
+}
+
+.message-card {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.message-card h3 {
+    margin-top: 0;
+    color: var(--primary);
+}
+
+.message-card p {
+    margin: 5px 0;
+}
+
+.client-details p {
+    font-size: 14px;
+    color: #555;
+}
+
+
+.status-container {
+    text-align: left;
+    width: 50%;
+    padding: 20px;
+    background: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.status-container button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.status-container button:hover {
+    background-color: #009f7f;
+}
+
+.status-container form {
+    margin-top: 10px;
+}
+
+.status-container label {
+    margin-right: 10px;
+    font-size: 16px;
+}
