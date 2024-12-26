@@ -78,7 +78,7 @@
         <!-- Navbar End -->
 
 
-        <!-- add property start -->
+        <!-- Add Property Start -->
         <div class="container">
             <div class="title">
                 <br><br><h1>Add Property</h1>
@@ -99,7 +99,15 @@
                 <input type="text" name="property_address" placeholder="Address" required>
 
                 <!-- City -->
-                <input type="text" name="property_city" placeholder="City" required>
+                <h3>City</h3>
+                <select name="property_city" required>
+                    <option value="">Select City</option>
+                    <?php
+                    $cities = $con->query("SELECT city_id, city FROM cities");
+                    while ($city = $cities->fetch_assoc()): ?>
+                        <option value="<?= $city['city_id'] ?>"><?= $city['city'] ?></option>
+                    <?php endwhile; ?>
+                </select><br>
 
                 <!-- Number of Bedrooms -->
                 <input type="number" name="bedrooms" placeholder="Number of Bedrooms" required>
@@ -110,16 +118,15 @@
                 <!-- Area in sqft -->
                 <input type="number" name="area" placeholder="Area (sqft)" required><br>
 
-                 
                 <!-- Property Type -->
                 <h3>Property Type</h3>
                 <select name="property_type" required>
                     <option value="">Select Type</option>
-                    <option value="home">Home</option>
-                    <option value="apartment">Apartment</option>
-                    <option value="villa">Villa</option>
-                    <option value="office">Office</option>
-                    <option value="shop">Shop</option>
+                    <?php
+                    $types = $con->query("SELECT type_id, type FROM property_types");
+                    while ($type = $types->fetch_assoc()): ?>
+                        <option value="<?= $type['type_id'] ?>"><?= $type['type'] ?></option>
+                    <?php endwhile; ?>
                 </select><br>
 
                 <!-- Property Status -->
@@ -129,7 +136,6 @@
                     <label><input type="radio" name="status" value="rented" required> Rented</label>
                     <label><input type="radio" name="status" value="sold" required> Sold</label>
                 </div><br>
-                
 
                 <!-- Main Image -->
                 <h3>Main Image</h3>
@@ -144,13 +150,11 @@
                     <input type="file" name="gallery_image_4" accept="image/*" required>
                 </div><br>
 
-
                 <!-- Submit Button -->
                 <button type="submit" name="submit">Add Property</button>
             </form>
         </div><br>
-        <!-- add property End -->
-
+        <!-- Add Property End -->
 
 
   

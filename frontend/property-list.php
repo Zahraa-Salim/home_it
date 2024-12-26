@@ -158,56 +158,73 @@
 
                 <!-- Tab Content -->
                 <div class="tab-content">
-
-                    <!-- -------------------------PHP code--------------------------------- -->
                     <?php 
-                    // Fetch data for each tab
+                    // Tabs Array
                     $all_properties = $con->query("SELECT * FROM properties WHERE status = 'available'");
                     $sell_properties = $con->query("SELECT * FROM properties WHERE purpose = 'for sell' AND status = 'available'");
-                    $rent_properties = $con->query("SELECT * FROM properties WHERE purpose = 'for rent'AND status = 'available'");
-
-                    // Define tab mappings
+                    $rent_properties = $con->query("SELECT * FROM properties WHERE purpose = 'for rent' AND status = 'available'");
+                    
                     $tabs = [
                         'tab-1' => $all_properties,
                         'tab-2' => $sell_properties,
                         'tab-3' => $rent_properties,
                     ];
-
-                    // Render each tab content
-                    foreach ($tabs as $tabId => $properties): 
-                    ?>
-                    <!-- -------------------------PHP code--------------------------------- -->
-
-                    <div id="<?= $tabId ?>" class="tab-pane <?= $tabId === 'tab-1' ? 'show active' : '' ?> p-0">
+                    foreach ($tabs as $tabId => $properties): ?>
+                    <div id="<?= $tabId ?>" class="tab-pane fade <?= $tabId === 'tab-1' ? 'show active' : '' ?> p-0">
                         <div class="row g-4">
                             <?php while ($row = mysqli_fetch_assoc($properties)): ?>
-                            <!-- Property Card -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <a href="property_details.php?id=<?= $row['property_id'] ?>" > <img class="img-fluid" src="<?=$row['main_image'] ?: '../img/z-image1.webp'?>" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3"><?= ucfirst($row["purpose"]); ?></div>
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3"><?= ucfirst($row["property_type"]); ?></div>
-                                    </div>
-
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">$<?= number_format($row["price"], 2); ?></h5>
-                                        <a class="d-block h5 mb-2" href="property_details.php?id=<?= $row['property_id'] ?>"><?= htmlspecialchars($row["title"]); ?></a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i><?= htmlspecialchars($row["address"]); ?></p>
-                                    </div>
-
-                                    <div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i><?= $row["sqft"]; ?> Sqft</small>
-                                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i><?= $row["bedrooms"]; ?> Bed</small>
-                                        <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i><?= $row["bathrooms"]; ?> Bath</small>
+                                <!-- Property Card -->
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="property-item rounded overflow-hidden">
+                                        <!-- Property Image -->
+                                        <div class="position-relative overflow-hidden">
+                                            
+                                            <a href="frontend/property_details.php?id=<?= $row['property_id'] ?>">
+                                                <img class="img-fluid" src='<?= $image = $row["main_image"] ?: '../img/z-image1.webp' ?>' alt="">
+                                            </a>
+                                            <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                                <?= $row["purpose"] ?>
+                                            </div>
+                                            <?php 
+                                            $type_query = $con->query("SELECT type FROM property_types WHERE type_id = " . $row['type_id']);
+                                            $property_type = mysqli_fetch_assoc($type_query)['type'];
+                                            ?>
+                                            <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                                <?= $property_type ?>
+                                            </div>
+                                        </div>
+                                        <!-- Property Info -->
+                                        <div class="p-4 pb-0">
+                                            <h5 class="text-primary mb-3">$<?= $row["price"] ?></h5>
+                                            <a class="d-block h5 mb-2" href="frontend/property_details.php?id=<?= $row['property_id'] ?>">
+                                                <?= $row["title"] ?>
+                                            </a>
+                                            <p><i class="fa fa-map-marker-alt text-primary me-2"></i><?= $row["address"] ?></p>
+                                        </div>
+                                        <!-- Property Details -->
+                                        <div class="d-flex border-top">
+                                            <small class="flex-fill text-center border-end py-2">
+                                                <i class="fa fa-ruler-combined text-primary me-2"></i><?= $row["sqft"] ?> Sqft
+                                            </small>
+                                            <small class="flex-fill text-center border-end py-2">
+                                                <i class="fa fa-bed text-primary me-2"></i><?= $row["bedrooms"] ?> Bed
+                                            </small>
+                                            <small class="flex-fill text-center py-2">
+                                                <i class="fa fa-bath text-primary me-2"></i><?= $row["bathrooms"] ?> Bath
+                                            </small>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             <?php endwhile; ?>
+                            <!-- Browse More Button -->
+                            <div class="col-12 text-center">
+                                <a class="btn btn-primary py-3 px-5" href="frontend/property-list.php">Browse More Properties</a>
+                            </div>
                         </div>
                     </div>
                     <?php endforeach; ?>
                 </div>
+
             </div>
         </div>
         <!-- Property List End -->
