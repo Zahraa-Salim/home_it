@@ -113,7 +113,11 @@
             <header class="title">
                 <h1><?= $row["title"]; ?></h1>
                 <div class="tags">
-                    <span class="tag featured"><?= $row["property_type"]; ?></span>
+                <?php 
+                    $type_query = $con->query("SELECT type FROM property_types WHERE type_id = " . $row['type_id']);
+                    $property_type = mysqli_fetch_assoc($type_query)['type'];
+                 ?>
+                    <span class="tag featured"><?= $property_type ?></span>
                     <span class="tag for-sale"><?= $row["purpose"]; ?></span>
                 </div>
                 <div class="price">$<?= $row["price"]; ?></div>
@@ -133,8 +137,12 @@
                             <td><?= $row["address"]; ?></td>
                         </tr>
                         <tr>
+                        <?php 
+                            $city_query = $con->query("SELECT city FROM cities WHERE city_id = " . $row['city_id']);
+                            $city = mysqli_fetch_assoc($city_query)['city'];
+                        ?>
                             <th>City</th>
-                            <td><?= $row["city"]; ?></td>
+                            <td><?= $city ?></td>
                         </tr>
                         <tr>
                             <th>Number of bedrooms</th>
