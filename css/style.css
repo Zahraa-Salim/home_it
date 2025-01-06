@@ -7,14 +7,12 @@
 }
 
 .back-to-top {
+    display: none; /* Hidden by default */
     position: fixed;
-    display: none;
-    right: 45px;
-    bottom: 45px;
-    z-index: 99;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
 }
-
-
 
 /*** Button ***/
 .btn {
@@ -372,4 +370,18 @@
     margin-right: 0;
     padding-right: 0;
     border-right: none;
+}
+
+.wishlist-btn.active {
+    background-color: #dc3545; /* Red background */
+    color: white;
+    border-color: #dc3545;
+}
+
+.wishlist-btn i {
+    transition: color 0.3s;
+}
+
+.wishlist-btn.active i {
+    color: white;
 }
