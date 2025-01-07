@@ -6,7 +6,6 @@
     header("location:../sign_up_sign_in/login.php?error=2");
     exit();
   }
-
 ?>
 
 <!DOCTYPE html>
@@ -22,8 +21,8 @@
     <link href="..\img\icon.png" rel="icon">
 
     <!-- Google Web Fonts -->
-    <link rel="preconect" href="https://fonts.googleapis.com">
-    <link rel="preconect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
     
     <!-- Icon Font Stylesheet -->
@@ -36,13 +35,10 @@
     <!-- Template Stylesheet -->
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/style3.css" rel="stylesheet">
-
 </head>
 <body>
-
     <div class="container-xxl bg-white p-0">
-
-                <!-- Navbar Start -->
+        <!-- Navbar Start -->
         <div class="container-fluid nav-bar bg-transparent">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
                 <a href="backend_index.php" class="navbar-brand d-flex align-items-center text-center">
@@ -62,13 +58,10 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">My account</a>
                             <div class="dropdown-menu rounded-0 m-0">
-                                
                                 <a href="editAccount.php" class="dropdown-item">Edit My Account</a>
                                 <a href="addProperty.php" class="dropdown-item active">Add Property</a>
-                                
                                 <a href="myProperties.php" class="dropdown-item">My Properties</a>
                                 <a href="messages.php" class="dropdown-item">Messages</a>
-
                                 <a href="logout.php" class="dropdown-item">Logout</a>
                             </div>
                         </div>
@@ -77,7 +70,6 @@
             </nav>
         </div>
         <!-- Navbar End -->
-
 
         <!-- Add Property Start -->
         <div class="container">
@@ -106,15 +98,12 @@
                 <!-- City -->
                 <h3>City</h3>
                 <select id='cities' name="property_city" required>
-                <option value="">Select City</option>
+                    <option value="">Select City</option>
                     <?php
-                        $sql="SELECT * FROM cities";
-
-                        $result=mysqli_query($con,$sql);
-
-                        while($row=mysqli_fetch_assoc($result)){
-
-                        echo"<option value=".$row['city_id'].">".$row['city']."</option>";
+                        $sql = "SELECT * FROM cities";
+                        $result = mysqli_query($con, $sql);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<option value=" . $row['city_id'] . ">" . $row['city'] . "</option>";
                         }
                     ?>
                 </select><br>
@@ -169,7 +158,6 @@
                 </div><br>
 
                 <script>
-                                        
                     function previewImage(inputElement, previewElementId) {
                         const file = inputElement.files[0];
                         if (file) {
@@ -193,8 +181,6 @@
                             previewImage(this, 'galleryImagePreview' + i);
                         });
                     }
-
-
                 </script>
 
                 <!-- Submit Button -->
@@ -203,8 +189,6 @@
         </div><br>
         <!-- Add Property End -->
 
-
-  
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
             <div class="container py-5">
@@ -256,7 +240,6 @@
         </div>
         <!-- Footer End -->
 
-
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
@@ -266,8 +249,5 @@
     <script src="../js/wow/wow.min.js"></script>
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
-    
-
-</div>
 </body>
 </html>
