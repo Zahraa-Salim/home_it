@@ -193,8 +193,8 @@
                         <div class="col-md-4">
                             <a href="property_details.php?id=<?= $row['property_id'] ?>" class="text-decoration-none">
                                 <div class="property-card border rounded shadow-sm" style="padding: 10px;">
-                                    <div class="position-relative">
-                                        <img src="<?= $row['main_image'] ?: '../img/z-image1.webp' ?>" alt="Property" class="img-fluid">
+                                    <div class="property-image position-relative">
+                                        <img src="<?= $row['main_image'] ?: '../img/z-image1.webp' ?>" alt="Property" class="img-fluid" style="width: 100%; height: 250px; object-fit: cover;">
                                         <span class="badge bg-primary position-absolute" style="top: 10px; left: 10px;">
                                             <?= ucfirst($row['status']) ?>
                                         </span>

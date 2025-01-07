@@ -166,7 +166,7 @@ $has_active_filters = !empty($keyword) || !empty($type_id) || !empty($city_id);
                             <a href="property_details.php?id=<?= $row['property_id'] ?>" class="text-decoration-none">
                                 <div class="property-card border rounded shadow-sm">
                                     <div class="property-image position-relative">
-                                        <img src="<?= $row['main_image'] ?: '../img/z-image1.webp' ?>" alt="Property" class="img-fluid" style="width: 100%; height: 300px; object-fit: cover;">
+                                        <img src="<?= $row['main_image'] ?: '../img/z-image1.webp' ?>" alt="Property" class="img-fluid" style="width: 100%; height: 250px; object-fit: cover;">
                                         <!-- Status Badge on Image -->
                                         <span class="badge bg-primary position-absolute" style="top: 10px; left: 10px;">
                                             <?= ucfirst($row['status']) ?>
