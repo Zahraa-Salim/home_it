@@ -284,7 +284,7 @@
                                 <!-- Property Card -->
                                 <div class="col-lg-4 col-md-6">
                                     <div class="property-item rounded overflow-hidden">
-                                        <div class="position-relative overflow-hidden" style="width: 40px; height: 300px;">
+                                        <div class="position-relative overflow-hidden" style="width: 400px; height: 300px;">
                                             <a href="property_details.php?id=<?= $row['property_id'] ?>">
                                                 <img class="img-fluid" src="<?= $row['main_image'] ?: '../img/z-image1.webp' ?>" alt="" style="width: 100%; height: 100%; object-fit: cover;">
                                             
